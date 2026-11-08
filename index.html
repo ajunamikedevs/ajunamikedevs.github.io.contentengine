@@ -60,9 +60,8 @@
     .period { color: #d3d5cf; font-size: 15px; }
     .features { margin: 0 0 30px; padding-left: 20px; display: flex; flex-direction: column; gap: 12px; }
     .features li { padding-left: 3px; color: #f0eee7; font-size: 14px; line-height: 1.55; }
-    .btn { display: block; width: 100%; padding: 14px 20px; background: #d59a70; color: #211d18; font-size: 15px; font-weight: 700; text-align: center; text-decoration: none; transition: background .15s ease-in-out; }
-    .btn:hover, .btn:focus-visible { background: #efb58a; }
     .footer-note { margin: 14px 0 0; color: #d3d5cf; text-align: center; font-size: 12px; line-height: 1.6; }
+    #checkout { min-height: 48px; }
     .site-footer { border-top: 1px solid var(--line); margin-top: 24px; padding: 22px 0 10px; text-align: center; color: var(--muted); font-size: 13px; line-height: 1.8; }
     .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 18px; margin-top: 8px; }
     .footer-links a { color: var(--muted); }
@@ -111,7 +110,7 @@
         <details><summary>What happens after I submit 4 episodes in a month?</summary><p>The tier currently includes up to 4 episodes per month. Additional episodes are not included in that monthly allowance.</p></details>
         <details><summary>How do I cancel?</summary><p>You can cancel anytime.</p></details>
         <details><summary>How do refunds work?</summary><p>The plan includes a 14-day satisfaction guarantee. To request a refund, email <a href="mailto:ajuna.n.michael@gmail.com">ajuna.n.michael@gmail.com</a>.</p></details>
-        <details><summary>Who processes payments?</summary><p>Dodo Payments processes payments as our Merchant of Record.</p></details>
+        <details><summary>Who processes payments?</summary><p>AgentOS processes payments as our Merchant of Record.</p></details>
       </div>
     </section>
 
@@ -128,9 +127,12 @@
             <li>Automated processing and inbox delivery within 2 hours of submission</li>
             <li>Cancel anytime · 14-day satisfaction guarantee</li>
           </ul>
-          <!-- This checkout button currently points to a test-mode link; replace it with the live Dodo Payments link. -->
-          <a id="checkout-button" class="btn" href="https://test.checkout.dodopayments.com/buy/pdt_0NqdzqMUYh8PNbInUNU1d?quantity=1&amp;redirect_url=https://ajunamikedevs.github.io%2F">Subscribe to Founding Tier</a>
-          <p class="footer-note">Payments are processed securely by Dodo Payments, our Merchant of Record.</p>
+          <div id="checkout"></div>
+          <script src="https://app.agentaos.ai/v1/agentaos.js"></script>
+          <script>
+            AgentaOS.checkout.open({ link: 'https://app.agentaos.ai/pay/zM3DQezDcS28dCMlYn1IOA', target: '#checkout' });
+          </script>
+          <p class="footer-note">Payments are processed securely by AgentOS, our Merchant of Record.</p>
           <div style="margin-top: 18px; display: flex; justify-content: center;">
             <a href="https://agentaos.ai/?ref=badge&amp;m=484adb1f616f6763" data-agentaos-badge="484adb1f616f6763" title="Secure checkout by AgentaOS" style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid #d7dce5;border-radius:8px;background:#fff;color:#0a2540;font:600 13px/1 system-ui,sans-serif;text-decoration:none"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect width="16" height="16" rx="4" fill="#4f46e5"/><path d="M4.5 8.5l2.2 2.2L11.5 6" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Secure checkout by AgentaOS</span></a>
           </div>
